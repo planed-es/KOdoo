@@ -1,9 +1,17 @@
-# SPDX-License-Identifier: BSD-3-Clause
-# SPDX-FileCopyrightText: %{CURRENT_YEAR} %{AUTHOR} <%{EMAIL}>
-
 add_executable(kodooexample
     main.cpp
     app.cpp
+    odoosettings.cpp
+    modelcontroller.cpp
+    contactcollection.cpp
+    contactcontroller.cpp
+    countrycollection.cpp
+    countrystatecollection.cpp
+    productcollection.cpp
+    productcontroller.cpp
+    taxcollection.cpp
+    taxcontroller.cpp
+    invoicecollection.cpp
     resources.qrc)
 
 target_link_libraries(kodooexample
@@ -16,7 +24,14 @@ target_link_libraries(kodooexample
     KF5::I18n
     KF5::CoreAddons
     KF5::ConfigCore
-    KF5::ConfigGui)
+    KF5::ConfigGui
+    ${QTXMLRPC_LIBRARIES}
+    ${QTODOO_LIBRARIES}
+)
+
+target_compile_options(kodooexample
+    PUBLIC ${QTODOO_CFLAGS_OTHER}
+)
 
 if (ANDROID)
     kirigami_package_breeze_icons(ICONS

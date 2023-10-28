@@ -1,7 +1,5 @@
-// SPDX-License-Identifier: GPL-2.0-or-later
-// SPDX-FileCopyrightText: %{CURRENT_YEAR} %{AUTHOR} <%{EMAIL}>
-
 #include <QIcon>
+#include <QOdoo.h>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
@@ -18,7 +16,22 @@
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
+#include "contactcollection.h"
+#include "contactcontroller.h"
+#include "countrycollection.h"
+#include "countrystatecollection.h"
+#include "invoicecollection.h"
 #include "kodooexampleconfig.h"
+#include "odoosettings.h"
+#include "productcollection.h"
+#include "productcontroller.h"
+#include "taxcollection.h"
+#include "taxcontroller.h"
+#include <iostream>
+
+using namespace std;
+
+OdooService *odooService = nullptr;
 
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
@@ -58,20 +71,24 @@ int main(int argc, char *argv[])
         // The program name used internally.
         QStringLiteral("kodooexample"),
         // A displayable program name string.
-        i18nc("@title", "KOdooExample"),
+        i18nc("@title", "KOdoo"),
         // The program version string.
         QStringLiteral(KODOOEXAMPLE_VERSION_STRING),
         // Short description of what the app does.
-        i18n("Application Description"),
+        i18n("Kirigami-based client for Odoo, by PlanED S.L."),
         // The license this code is released under.
         KAboutLicense::GPL,
         // Copyright Statement.
-        i18n("(c) %{CURRENT_YEAR}"));
-    aboutData.addAuthor(i18nc("@info:credit", "%{AUTHOR}"),
+        i18n("(c) 2023"));
+    QImage applicationIcon(":/images/logo.png");
+    aboutData.addAuthor(i18nc("@info:credit", "Michael Martin Moro"),
                         i18nc("@info:credit", "Maintainer"),
-                        QStringLiteral("%{EMAIL}"),
-                        QStringLiteral("https://yourwebsite.com"));
-    aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
+                        QStringLiteral("michael@planed.es"),
+                        QStringLiteral("https://github.com/Plaristote"));
+    // aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
+    aboutData.setBugAddress("https://github.com/planed-es/KOdoo/issues");
+    aboutData.setHomepage("https://github.com/planed-es/KOdoo");
+    aboutData.setProgramLogo(applicationIcon);
     KAboutData::setApplicationData(aboutData);
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.kodooexample")));
 
@@ -85,8 +102,26 @@ int main(int argc, char *argv[])
         return engine->toScriptValue(KAboutData::applicationData());
     });
 
+    qmlRegisterType<ContactCollection>("org.kde.kodooexample", 1, 0, "ContactCollection");
+    qmlRegisterType<ContactController>("org.kde.kodooexample", 1, 0, "ContactController");
+    qmlRegisterType<CountryCollection>("org.kde.kodooexample", 1, 0, "CountryCollection");
+    qmlRegisterType<CountryStateCollection>("org.kde.kodooexample", 1, 0, "CountryStateCollection");
+    qmlRegisterType<ProductCollection>("org.kde.kodooexample", 1, 0, "ProductCollection");
+    qmlRegisterType<ProductTemplateCollection>("org.kde.kodooexample", 1, 0, "ProductTemplateCollection");
+    qmlRegisterType<ProductController>("org.kde.kodooexample", 1, 0, "ProductController");
+    qmlRegisterType<TaxCollection>("org.kde.kodooexample", 1, 0, "TaxCollection");
+    qmlRegisterType<TaxController>("org.kde.kodooexample", 1, 0, "TaxController");
+    qmlRegisterType<InvoiceCollection>("org.kde.kodooexample", 1, 0, "InvoiceCollection");
+
+    qmlRegisterType<QOdooProduct>("org.planed.odoo", 1, 0, "QOdooProduct");
+    qmlRegisterType<QOdooTax>("org.planed.odoo", 1, 0, "QOdooTax");
+    qmlRegisterType<QOdooInvoice>("org.planed.odoo", 1, 0, "QOdooInvoice");
+
     App application;
     qmlRegisterSingletonInstance("org.kde.kodooexample", 1, 0, "App", &application);
+
+    OdooSettings odooSettings;
+    engine.rootContext()->setContextProperty(QString("odooSettings"), &odooSettings);
 
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

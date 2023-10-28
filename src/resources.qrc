@@ -1,10 +1,18 @@
-<!--
-    SPDX-License-Identifier: CC0-1.0
-    SPDX-FileCopyrightText: %{CURRENT_YEAR} %{AUTHOR} <%{EMAIL}>
--->
 <RCC>
     <qresource prefix="/">
         <file alias="main.qml">contents/ui/main.qml</file>
         <file alias="About.qml">contents/ui/About.qml</file>
+        <file alias="Authenticate.qml">contents/ui/Authenticate.qml</file>
+        <file alias="MainView.qml">contents/ui/MainView.qml</file>
+        <file alias="ModelIndex.qml">contents/ui/ModelIndex.qml</file>
+        <file alias="ModelForm.qml">contents/ui/ModelForm.qml</file>
+        <file alias="ContactIndex.qml">contents/ui/ContactIndex.qml</file>
+        <file alias="ContactForm.qml">contents/ui/ContactForm.qml</file>
+        <file alias="ProductIndex.qml">contents/ui/ProductIndex.qml</file>
+        <file alias="ProductForm.qml">contents/ui/ProductForm.qml</file>
+        <file alias="TaxIndex.qml">contents/ui/TaxIndex.qml</file>
+        <file alias="TaxForm.qml">contents/ui/TaxForm.qml</file>
+        <file alias="InvoiceIndex.qml">contents/ui/InvoiceIndex.qml</file>
+        <file alias="images/logo.png">contents/images/logo.png</file>
     </qresource>
 </RCC>

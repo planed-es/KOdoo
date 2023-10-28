@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: %{CURRENT_YEAR} %{AUTHOR} <%{EMAIL}>
-# SPDX-License-Identifier: BSD-3-Clause
-
 cmake_minimum_required(VERSION 3.16)
 
 project(kodooexample VERSION 0.1)
@@ -17,7 +14,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 include(FeatureSummary)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
-include(KDECompilerSettings NO_POLICY_SCOPE)
+#include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 include(ECMFindQmlModule)
@@ -39,8 +36,11 @@ endif()
 
 find_package(Qt5 ${QT5_MIN_VERSION} REQUIRED COMPONENTS Core Gui Qml QuickControls2 Svg ${QT_EXTRA_COMPONENTS})
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Kirigami2 CoreAddons Config I18n)
+find_package(PkgConfig)
+pkg_check_modules(QTXMLRPC REQUIRED Qt5XMLRpc>=1.0.0)
+pkg_check_modules(QTODOO REQUIRED Qt5Odoo>=1.0.0)
 
-ecm_find_qmlmodule(org.kde.kirigamiaddons.labs.mobileform 1.0)
+#ecm_find_qmlmodule(org.kde.kirigamiaddons.labs.mobileform 1.0)
 
 if (ANDROID)
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/android/version.gradle.in ${CMAKE_BINARY_DIR}/version.gradle)
