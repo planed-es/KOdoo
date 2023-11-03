@@ -8,6 +8,7 @@ Kirigami.ScrollablePage {
   id: pageRoot
   property int loadModelId: 0
   property QtObject controller
+  property bool withReset: true
   default property alias content: form.children
 
   signal applyChangesToModel()
@@ -43,6 +44,8 @@ Kirigami.ScrollablePage {
         text: i18n("Reset")
         tooltip: i18n("Reset all the fields to their initial value")
         onTriggered: controller.requestPropertyRefresh()
+        enabled: withReset
+        visible: withReset
       }
     ]
   }

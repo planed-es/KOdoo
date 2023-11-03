@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.15
 import Qt.labs.settings 1.0
 import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kodooexample 1.0
+import com.planed.odoo 1.0 as Odoo
 
 Kirigami.Page {
   id: root

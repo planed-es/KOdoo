@@ -11,6 +11,7 @@ Kirigami.ScrollablePage {
   property int hoveredIndex: 0
   property alias filterComponent: view.header
   property var filters: ({})
+  property bool createEnabled: true
 
   signal createClicked()
   signal openClicked(QtObject model)
@@ -31,6 +32,8 @@ Kirigami.ScrollablePage {
         icon.name: "list-add"
         text: i18n("New")
         onTriggered: root.createClicked()
+        enabled: createEnabled
+        visible: createEnabled
       },
       Kirigami.Action {
         icon.name: "go-previous"

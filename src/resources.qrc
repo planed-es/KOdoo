@@ -7,12 +7,24 @@
         <file alias="ModelIndex.qml">contents/ui/ModelIndex.qml</file>
         <file alias="ModelForm.qml">contents/ui/ModelForm.qml</file>
         <file alias="ContactIndex.qml">contents/ui/ContactIndex.qml</file>
+        <file alias="ContactIndexBase.qml">contents/ui/ContactIndexBase.qml</file>
         <file alias="ContactForm.qml">contents/ui/ContactForm.qml</file>
+        <file alias="ContactPicker.qml">contents/ui/ContactPicker.qml</file>
+        <file alias="ProductIndexBase.qml">contents/ui/ProductIndexBase.qml</file>
         <file alias="ProductIndex.qml">contents/ui/ProductIndex.qml</file>
+        <file alias="ProductPicker.qml">contents/ui/ProductPicker.qml</file>
         <file alias="ProductForm.qml">contents/ui/ProductForm.qml</file>
+        <file alias="AccountIndexBase.qml">contents/ui/AccountIndexBase.qml</file>
+        <file alias="AccountIndex.qml">contents/ui/AccountIndex.qml</file>
+        <file alias="AccountPicker.qml">contents/ui/AccountPicker.qml</file>
+        <file alias="AccountForm.qml">contents/ui/AccountForm.qml</file>
         <file alias="TaxIndex.qml">contents/ui/TaxIndex.qml</file>
         <file alias="TaxForm.qml">contents/ui/TaxForm.qml</file>
         <file alias="InvoiceIndex.qml">contents/ui/InvoiceIndex.qml</file>
+        <file alias="InvoiceForm.qml">contents/ui/InvoiceForm.qml</file>
+        <file alias="InvoiceLineForm.qml">contents/ui/InvoiceLineForm.qml</file>
+        <file alias="components/GridTable.qml">contents/ui/components/GridTable.qml</file>
+        <file alias="components/PickerButton.qml">contents/ui/components/PickerButton.qml</file>
         <file alias="images/logo.png">contents/images/logo.png</file>
     </qresource>
 </RCC>

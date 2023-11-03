@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
 import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kodooexample 1.0
-import org.planed.odoo 1.0
+import com.planed.odoo 1.0 as Odoo
 import "."
 
 ModelForm {
@@ -52,9 +52,9 @@ ModelForm {
     id: taxTypeInput
     Kirigami.FormData.label: "Tax type"
     model: [
-      { text: "Undefined", value: QOdooTax.NoTaxType },
-      { text: "Sale",      value: QOdooTax.SaleTax },
-      { text: "Purchase",  value: QOdooTax.PurchaseTax }
+      { text: "Undefined", value: Odoo.Tax.NoTaxType },
+      { text: "Sale",      value: Odoo.Tax.SaleTax },
+      { text: "Purchase",  value: Odoo.Tax.PurchaseTax }
     ]
     textRole: "text"
     valueRole: "value"
@@ -64,11 +64,11 @@ ModelForm {
     id: amountTypeInput
     Kirigami.FormData.label: "Amount type"
     model: [
-      { text: "Undefined", value: QOdooTax.NoAmountType },
-      { text: "Grouped",   value: QOdooTax.GroupedAmount },
-      { text: "Fixed",     value: QOdooTax.FixedAmount },
-      { text: "Percent",   value: QOdooTax.PercentAmount },
-      { text: "Division",  value: QOdooTax.DivisionAmount }
+      { text: "Undefined", value: Odoo.Tax.NoAmountType },
+      { text: "Grouped",   value: Odoo.Tax.GroupedAmount },
+      { text: "Fixed",     value: Odoo.Tax.FixedAmount },
+      { text: "Percent",   value: Odoo.Tax.PercentAmount },
+      { text: "Division",  value: Odoo.Tax.DivisionAmount }
     ]
     textRole: "text"
     valueRole: "value"
@@ -78,9 +78,9 @@ ModelForm {
     id: taxScopeInput
     Kirigami.FormData.label: "Tax scope"
     model: [
-      { text: "Undefined",  value: QOdooTax.NoTaxScope },
-      { text: "Consumible", value: QOdooTax.Consumible },
-      { text: "Service",    value: QOdooTax.Service }
+      { text: "Undefined",  value: Odoo.Tax.NoTaxScope },
+      { text: "Consumible", value: Odoo.Tax.Consumible },
+      { text: "Service",    value: Odoo.Tax.Service }
     ]
     textRole: "text"
     valueRole: "value"

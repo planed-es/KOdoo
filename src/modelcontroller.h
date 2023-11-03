@@ -22,10 +22,12 @@ public:
     }
 
     template<typename MODEL>
-    void load(int id)
+    void load(int id, std::function<void(MODEL *)> callback = std::function<void(MODEL *)>())
     {
-        service().fetch<MODEL>(id, [this](MODEL *result) {
+        service().fetch<MODEL>(id, [this, callback](MODEL *result) {
             model = result;
+            if (callback)
+                callback(result);
             emit modelChanged();
         });
     }
@@ -42,7 +44,7 @@ signals:
     void modelChanged();
     void modelSaved();
 
-private:
+protected:
     QOdooModel *model = nullptr;
 };
 

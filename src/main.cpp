@@ -1,3 +1,4 @@
+#include "merdemodel.h"
 #include <QIcon>
 #include <QOdoo.h>
 #include <QQmlApplicationEngine>
@@ -16,17 +17,22 @@
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
+#include "accountcollection.h"
+#include "accountcontroller.h"
 #include "contactcollection.h"
 #include "contactcontroller.h"
 #include "countrycollection.h"
 #include "countrystatecollection.h"
 #include "invoicecollection.h"
+#include "invoicecontroller.h"
+#include "invoicelinecontroller.h"
 #include "kodooexampleconfig.h"
 #include "odoosettings.h"
 #include "productcollection.h"
 #include "productcontroller.h"
 #include "taxcollection.h"
 #include "taxcontroller.h"
+#include <QOdooTableModel.h>
 #include <iostream>
 
 using namespace std;
@@ -111,11 +117,23 @@ int main(int argc, char *argv[])
     qmlRegisterType<ProductController>("org.kde.kodooexample", 1, 0, "ProductController");
     qmlRegisterType<TaxCollection>("org.kde.kodooexample", 1, 0, "TaxCollection");
     qmlRegisterType<TaxController>("org.kde.kodooexample", 1, 0, "TaxController");
+    qmlRegisterType<AccountCollection>("org.kde.kodooexample", 1, 0, "AccountCollection");
+    qmlRegisterType<AccountController>("org.kde.kodooexample", 1, 0, "AccountController");
     qmlRegisterType<InvoiceCollection>("org.kde.kodooexample", 1, 0, "InvoiceCollection");
+    qmlRegisterType<InvoiceController>("org.kde.kodooexample", 1, 0, "InvoiceController");
+    qmlRegisterType<InvoiceLineController>("org.kde.kodooexample", 1, 0, "InvoiceLineController");
 
-    qmlRegisterType<QOdooProduct>("org.planed.odoo", 1, 0, "QOdooProduct");
-    qmlRegisterType<QOdooTax>("org.planed.odoo", 1, 0, "QOdooTax");
-    qmlRegisterType<QOdooInvoice>("org.planed.odoo", 1, 0, "QOdooInvoice");
+    qmlRegisterType<QOdooProduct>("com.planed.odoo", 1, 0, "Product");
+    qmlRegisterType<QOdooTax>("com.planed.odoo", 1, 0, "Tax");
+    qmlRegisterType<QOdooAccount>("com.planed.odoo", 1, 0, "Account");
+    qmlRegisterType<QOdooInvoice>("com.planed.odoo", 1, 0, "Invoice");
+    qmlRegisterType<QOdooInvoiceLine>("com.planed.odoo", 1, 0, "InvoiceLine");
+    qmlRegisterType<QOdooTableColumn>("com.planed.odoo", 1, 0, "TableColumn");
+    qmlRegisterType<QOdooTableModel>("com.planed.odoo", 1, 0, "TableModel");
+    qmlRegisterType<MerdeModel>("com.planed.odoo", 1, 0, "MerdeModel");
+    qRegisterMetaType<QOdooModel *>("QOdooModel*");
+    qRegisterMetaType<const QOdooModel *>("const QOdooModel*");
+    qRegisterMetaType<const QOdooInvoiceLine *>("const QOdooInvoiceLine*");
 
     App application;
     qmlRegisterSingletonInstance("org.kde.kodooexample", 1, 0, "App", &application);

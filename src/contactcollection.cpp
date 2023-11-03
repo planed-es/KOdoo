@@ -7,8 +7,6 @@ ContactCollection::ContactCollection(QObject *parent)
 {
     QOdooSearchQuery query;
 
-    // query.where("name") != QString("Mr.Rogers");
-    query.offset(0);
     query.limit(10);
     query.fields(QOdooPartner().propertyNames());
     setQuery(query);

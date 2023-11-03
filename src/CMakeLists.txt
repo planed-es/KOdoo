@@ -11,7 +11,12 @@ add_executable(kodooexample
     productcontroller.cpp
     taxcollection.cpp
     taxcontroller.cpp
+    accountcollection.cpp
+    accountcontroller.cpp
     invoicecollection.cpp
+    invoicecontroller.cpp
+    invoicelinecontroller.cpp
+    merdemodel.cpp
     resources.qrc)
 
 target_link_libraries(kodooexample

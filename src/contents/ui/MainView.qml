@@ -34,6 +34,11 @@ Kirigami.ScrollablePage {
     }
 
     ListElement {
+      title: "Accounts"
+      targetPage: "AccountIndex.qml"
+    }
+
+    ListElement {
       title: "Invoices"
       targetPage: "InvoiceIndex.qml"
     }

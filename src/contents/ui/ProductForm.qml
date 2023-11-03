@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
 import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kodooexample 1.0
-import org.planed.odoo 1.0
+import com.planed.odoo 1.0 as Odoo
 import "."
 
 ModelForm {
@@ -50,9 +50,9 @@ ModelForm {
 
   function productTypeValue() {
     switch (productTypeInput.currentIndex) {
-      case 0: return QOdooPartner.NoProductType;
-      case 1: return QOdooPartner.Consumible;
-      case 2: return QOdooPartner.Service;
+      case 0: return Odoo.Product.NoProductType;
+      case 1: return Odoo.Product.Consumible;
+      case 2: return Odoo.Product.Service;
     }
   }
 
