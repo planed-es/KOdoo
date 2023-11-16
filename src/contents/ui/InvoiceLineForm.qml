@@ -24,6 +24,16 @@ ModelForm {
     }
   }
 
+  actions.main: Kirigami.Action {
+    text: i18n("Apply changes")
+    icon.name: "answer-correct"
+    tooltip: i18n("Confirm the changes applied to the invoice line")
+    onTriggered: {
+      applyChangesToModel();
+      controller.save();
+    }
+  }
+
   onApplyChangesToModel: {
     with (controller.model) {
       name = nameInput.text

@@ -8,6 +8,5 @@ ProductIndexBase {
   onOpenClicked: {
     if (typeof callback == "function")
       callback(model.id);
-    pageStack.pop();
   }
 }

@@ -13,6 +13,7 @@ Kirigami.ScrollablePage {
 
   InvoiceController {
     id: controller
+    onModelSaved: modelSaved.visible = true
   }
 
   signal applyChangesToModel()
@@ -57,6 +58,10 @@ Kirigami.ScrollablePage {
       loader.visible = false;
       form.visible = true;
     }
+    function onModelReceived(message) {
+      faultDisplay.visible = true;
+      faultDisplay.text = message;
+    }
   }
 
   BusyIndicator {
@@ -72,6 +77,19 @@ Kirigami.ScrollablePage {
 
       Kirigami.FormLayout {
         Layout.fillWidth: true
+
+        Kirigami.InlineMessage {
+          id: modelSaved
+          Layout.fillWidth: true
+          text: i18n("Your changes have been saved")
+          type: Kirigami.MessageType.Positive
+        }
+
+        Kirigami.InlineMessage {
+          id: faultDisplay
+          Layout.fillWidth: true
+          type: Kirigami.MessageType.Error
+        }
 
         TextField {
           id: nameInput

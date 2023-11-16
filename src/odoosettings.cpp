@@ -14,6 +14,7 @@ OdooSettings::OdooSettings(QObject *parent)
 void OdooSettings::authenticate()
 {
     odooService = new OdooService(QUrl(_url));
+    odooService->enableFaults(true);
     odooService->authenticate(_database, _username, _password, [this](bool success) {
         if (success)
             emit authenticated();

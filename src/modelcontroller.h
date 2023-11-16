@@ -43,6 +43,7 @@ public:
 signals:
     void modelChanged();
     void modelSaved();
+    void errorReceived(QString);
 
 protected:
     QOdooModel *model = nullptr;

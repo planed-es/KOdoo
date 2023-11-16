@@ -6,9 +6,10 @@ Button {
   property var value: 0
 
   onClicked: {
-    pageStack.push(pickerView, {
+    pageStack.layers.push(pickerView, {
       callback: function(modelId) {
         value = modelId;
+        pageStack.layers.pop();
       }
     });
   }

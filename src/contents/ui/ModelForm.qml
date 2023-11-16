@@ -33,14 +33,14 @@ Kirigami.ScrollablePage {
       icon.name: "document-save"
       tooltip: i18n("Persist the changes to the remote Odoo server")
       onTriggered: {
-        modelSaved.visible = false;
+        modelSaved.visible = faultDisplay.visible = false;
         applyChangesToModel();
         controller.save();
       }
     }
     contextualActions: [
       Kirigami.Action {
-        icon.name: "reload"
+        icon.name: "edit-reset"
         text: i18n("Reset")
         tooltip: i18n("Reset all the fields to their initial value")
         onTriggered: controller.requestPropertyRefresh()
@@ -55,6 +55,10 @@ Kirigami.ScrollablePage {
     function onModelChanged() {
       loader.visible = false;
       form.visible = true;
+    }
+    function onModelReceived(message) {
+      faultDisplay.visible = true;
+      faultDisplay.text = message;
     }
   }
 
@@ -72,6 +76,12 @@ Kirigami.ScrollablePage {
       Layout.fillWidth: true
       text: i18n("Your changes have been saved")
       type: Kirigami.MessageType.Positive
+    }
+
+    Kirigami.InlineMessage {
+      id: faultDisplay
+      Layout.fillWidth: true
+      type: Kirigami.MessageType.Error
     }
   }
 }

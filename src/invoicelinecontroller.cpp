@@ -21,6 +21,11 @@ void InvoiceLineController::load(int id)
     emit modelChanged();
 }
 
+void InvoiceLineController::save()
+{
+    emit modelSaved();
+}
+
 void InvoiceLineController::onModelChanged()
 {
     QOdooInvoiceLine *line = qobject_cast<QOdooInvoiceLine *>(model);

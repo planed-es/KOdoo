@@ -21,6 +21,7 @@ public:
 
     Q_INVOKABLE void create();
     Q_INVOKABLE void load(int id);
+    Q_INVOKABLE void save();
     Q_INVOKABLE void fetchProduct(QOdooModel::IdType);
     Q_INVOKABLE void fetchAccount(QOdooModel::IdType);
 
