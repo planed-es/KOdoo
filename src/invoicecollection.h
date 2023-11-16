@@ -1,9 +1,9 @@
 #ifndef INVOICECOLLECTION_H
 #define INVOICECOLLECTION_H
 
-#include <QOdooCollection.h>
-#include <QOdooInvoice.h>
 #include <QtQml/qqml.h>
+#include <odoo-qt/QOdooCollection.h>
+#include <odoo-qt/QOdooInvoice.h>
 
 class InvoiceCollection : public QOdooCollection<QOdooInvoice>
 {

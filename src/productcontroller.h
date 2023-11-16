@@ -2,8 +2,8 @@
 #define PRODUCTCONTROLLER_H
 
 #include "modelcontroller.h"
-#include <QOdooProduct.h>
 #include <QtQml/qqml.h>
+#include <odoo-qt/QOdooProduct.h>
 
 class ProductController : public ModelControllerInterface
 {

@@ -1,10 +1,10 @@
 #ifndef ACCOUNTCOLLECTION_H
 #define ACCOUNTCOLLCETION_H
 
-#include <QOdooAccount.h>
-#include <QOdooCollection.h>
 #include <QQmlListProperty>
 #include <QtQml/qqml.h>
+#include <odoo-qt/QOdooAccount.h>
+#include <odoo-qt/QOdooCollection.h>
 
 class AccountCollection : public QOdooCollection<QOdooAccount>
 {

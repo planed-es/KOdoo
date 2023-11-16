@@ -1,8 +1,8 @@
 #ifndef MODELCONTROLLER_H
 #define MODELCONTROLLER_H
 
-#include <QOdoo.h>
-#include <QOdooModel.h>
+#include <QPointer>
+#include <odoo-qt/QOdoo.h>
 
 class ModelControllerInterface : public QObject
 {
@@ -24,11 +24,15 @@ public:
     template<typename MODEL>
     void load(int id, std::function<void(MODEL *)> callback = std::function<void(MODEL *)>())
     {
-        service().fetch<MODEL>(id, [this, callback](MODEL *result) {
-            model = result;
-            if (callback)
-                callback(result);
-            emit modelChanged();
+        QPointer<ModelControllerInterface> self(this);
+
+        service().fetch<MODEL>(id, [self, this, callback](MODEL *result) {
+            if (!self.isNull()) {
+                model = result;
+                if (callback)
+                    callback(result);
+                emit modelChanged();
+            }
         });
     }
 

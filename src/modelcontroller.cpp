@@ -5,10 +5,9 @@ extern OdooService *odooService;
 ModelControllerInterface::ModelControllerInterface(QObject *parent)
     : QObject{parent}
 {
-  connect(odooService, &OdooService::faultReceived, this, [this](QXMLRpcFault fault)
-  {
-    emit errorReceived(fault.message());
-  });
+    connect(odooService, &OdooService::faultReceived, this, [this](QXMLRpcFault fault) {
+        emit errorReceived(fault.message());
+    });
 }
 
 OdooService &ModelControllerInterface::service()

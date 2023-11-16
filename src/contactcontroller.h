@@ -2,8 +2,8 @@
 #define CONTACTCONTROLLER_H
 
 #include "modelcontroller.h"
-#include <QOdooPartner.h>
 #include <QtQml/qqml.h>
+#include <odoo-qt/QOdooPartner.h>
 
 class ContactController : public ModelControllerInterface
 {

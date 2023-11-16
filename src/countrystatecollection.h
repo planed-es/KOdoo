@@ -1,9 +1,9 @@
 #ifndef COUNTRYSTATECOLLECTION_H
 #define COUNTRYSTATECOLLECTION_H
 
-#include <QOdooCollection.h>
-#include <QOdooCountryState.h>
 #include <QtQml/qqml.h>
+#include <odoo-qt/QOdooCollection.h>
+#include <odoo-qt/QOdooCountryState.h>
 
 class CountryStateCollection : public QOdooCollection<QOdooCountryState>
 {

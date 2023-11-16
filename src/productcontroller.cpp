@@ -1,5 +1,5 @@
 #include "productcontroller.h"
-#include <QOdooProductTemplate.h>
+#include <odoo-qt/QOdooProductTemplate.h>
 
 ProductController::ProductController(QObject *parent)
     : ModelControllerInterface{parent}

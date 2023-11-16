@@ -2,12 +2,12 @@
 #define INVOICECONTROLLER_H
 
 #include "modelcontroller.h"
-#include <QOdooAccount.h>
-#include <QOdooInvoice.h>
-#include <QOdooPartner.h>
-#include <QOdooTableModel.h>
 #include <QQmlListProperty>
 #include <QtQml/qqml.h>
+#include <odoo-qt/QOdooAccount.h>
+#include <odoo-qt/QOdooInvoice.h>
+#include <odoo-qt/QOdooPartner.h>
+#include <odoo-qt/QOdooTableModel.h>
 
 class InvoiceController : public ModelControllerInterface
 {

@@ -1,5 +1,5 @@
 #include "odoosettings.h"
-#include <QOdoo.h>
+#include <odoo-qt/QOdoo.h>
 
 extern OdooService *odooService;
 

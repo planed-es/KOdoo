@@ -1,10 +1,10 @@
 #ifndef CONTACTCOLLECTION_H
 #define CONTACTCOLLECTION_H
 
-#include <QOdooCollection.h>
-#include <QOdooPartner.h>
 #include <QQmlListProperty>
 #include <QtQml/qqml.h>
+#include <odoo-qt/QOdooCollection.h>
+#include <odoo-qt/QOdooPartner.h>
 
 class ContactCollection : public QOdooCollection<QOdooPartner>
 {

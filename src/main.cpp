@@ -1,10 +1,10 @@
 #include "merdemodel.h"
 #include <QIcon>
-#include <QOdoo.h>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
 #include <QUrl>
+#include <odoo-qt/QOdoo.h>
 #ifdef Q_OS_ANDROID
 #include <GuiQApplication>
 #else
@@ -32,8 +32,8 @@
 #include "productcontroller.h"
 #include "taxcollection.h"
 #include "taxcontroller.h"
-#include <QOdooTableModel.h>
 #include <iostream>
+#include <odoo-qt/QOdooTableModel.h>
 
 using namespace std;
 

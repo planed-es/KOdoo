@@ -1,11 +1,11 @@
 #ifndef PRODUCTCOLLECTION_H
 #define PRODUCTCOLLECTION_H
 
-#include <QOdooCollection.h>
-#include <QOdooProduct.h>
-#include <QOdooProductTemplate.h>
 #include <QQmlListProperty>
 #include <QtQml/qqml.h>
+#include <odoo-qt/QOdooCollection.h>
+#include <odoo-qt/QOdooProduct.h>
+#include <odoo-qt/QOdooProductTemplate.h>
 
 class ProductCollection : public QOdooCollection<QOdooProduct>
 {

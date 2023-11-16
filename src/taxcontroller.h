@@ -2,8 +2,8 @@
 #define TAXCONTROLLER_H
 
 #include "modelcontroller.h"
-#include <QOdooTax.h>
 #include <QtQml/qqml.h>
+#include <odoo-qt/QOdooTax.h>
 
 class TaxController : public ModelControllerInterface
 {

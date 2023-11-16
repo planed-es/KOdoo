@@ -1,10 +1,10 @@
 #ifndef TAXCOLLECTION_H
 #define TAXCOLLECTION_H
 
-#include <QOdooCollection.h>
-#include <QOdooTax.h>
 #include <QQmlListProperty>
 #include <QtQml/qqml.h>
+#include <odoo-qt/QOdooCollection.h>
+#include <odoo-qt/QOdooTax.h>
 
 class TaxCollection : public QOdooCollection<QOdooTax>
 {

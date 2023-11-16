@@ -2,8 +2,8 @@
 #define ACCOUNTCONTROLLER_H
 
 #include "modelcontroller.h"
-#include <QOdooAccount.h>
 #include <QtQml/qqml.h>
+#include <odoo-qt/QOdooAccount.h>
 
 class AccountController : public ModelControllerInterface
 {
